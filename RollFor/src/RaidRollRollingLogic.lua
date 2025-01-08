@@ -11,7 +11,7 @@ local RollingStrategy = m.Types.RollingStrategy
 ---@diagnostic disable-next-line: deprecated
 local getn = table.getn
 
-function M.new( announce, ace_timer, group_roster, item, winner_tracker, roll_controller )
+function M.new( announce, ace_timer, group_roster, item, winner_tracker, roll_controller, config )
   local m_rolling = false
   local m_players
   local m_winner
@@ -53,7 +53,7 @@ function M.new( announce, ace_timer, group_roster, item, winner_tracker, roll_co
       return p.online == true
     end )
 
-    print_players( m_players )
+    if config.verbose_raid_roll() then print_players( m_players ) end
     ace_timer.ScheduleTimer( M, raid_roll, 1 )
   end
 

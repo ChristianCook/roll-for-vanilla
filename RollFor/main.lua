@@ -108,7 +108,8 @@ local function raid_roll_rolling_logic( item )
     M.group_roster,
     item,
     M.winner_tracker,
-    M.roll_controller
+    M.roll_controller,
+    M.config
   )
 end
 
